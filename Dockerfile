@@ -4,7 +4,7 @@ MAINTAINER Yiannis Mouchakis <gmouchakis@iit.demokritos.gr>
 
 RUN apt-get update && \
     apt-get install -y openjdk-8-jdk git maven r-cran-rjava r-cran-gridbase r-cran-gridextra r-cran-gtable libcurl4-openssl-dev libssl-dev && \
-    git clone https://bitbucket.org/dataengineering/rassp.git && cd rassp && git checkout feat-multicluster && mvn clean install && mvn dependency:copy-dependencies &&  \
+    git clone https://bitbucket.org/dataengineering/rassp.git && cd rassp && mvn clean install && mvn dependency:copy-dependencies &&  \
     apt-get --purge remove -y git maven && apt-get --purge autoremove -y && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 COPY build.R /rassp/RStats/
